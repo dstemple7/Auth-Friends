@@ -14,7 +14,7 @@ function App() {
             <Link to="/login">Login</Link>
           </li>
           <li>
-            <Link to="/protected">Protected Page</Link>
+            <Link to="/protected">My Hommies</Link>
           </li>
         </ul>
         <Switch>

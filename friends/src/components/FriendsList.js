@@ -1,6 +1,4 @@
 import React from "react";
-import Loader from "react-loader-spinner";
-import moment from 'moment'
 
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 
@@ -26,7 +24,9 @@ class FriendsList extends React.Component {
     const formattedData = []
     this.state.friendsList.forEach((friend)=> {
       formattedData.push({
-        name: friend.name
+        name: friend.name,
+        age: friend.age,
+        email: friend.email
       })
     })
     return formattedData
@@ -36,15 +36,10 @@ class FriendsList extends React.Component {
     const friendsList = this.formatData();
     return (
       <div className="friends-list">
-         {this.props.fetchingData && (
-          <div className="key spinner">
-            <Loader type="Puff" color="#204963" height="60" width="60" />
-            <p>Loading Data</p>
-          </div>
-        )}
-        {friendsList.length > 0 && (
-          <div>{friendsList.name}</div>
-        )}
+        <h1>My Hommies!</h1>
+        {friendsList.map(friend => (
+          <p>{friend.name}, {friend.age}, {friend.email}</p>
+        ))}
       </div>
     );
   }
